@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lzbay</groupId>
+    <artifactId>petBiz</artifactId>
+    <version>${revision}</version>
+
+    <name>petBiz</name>
+    <description>petBiz</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>pet-business</module>
+        <module>pet-common</module>
+        <module>pet-module</module>
+    </modules>
+
+    <properties>
+        <!--JDK版本-->
+        <java.version>17</java.version>
+        <resource.delimiter>@</resource.delimiter>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <revision>1.0.0</revision>
+        <!--spring boot 版本-->
+        <spring-boot.version>3.4.0</spring-boot.version>
+        <disruptor.version>3.4.4</disruptor.version>
+        <!--mybatis-plus版本-->
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <!--Mybatis版本，需要升级，不然报错-->
+        <mybatis.version>3.0.1</mybatis.version>
+        <guava.version>30.0-jre</guava.version>
+        <druid.version>1.2.20</druid.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-pools.version>2.8.0</commons-pools.version>
+        <pinyin4j.version>2.5.1</pinyin4j.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
+        <aviator.version>5.3.1</aviator.version>
+        <hutool-all.version>5.8.25</hutool-all.version>
+        <springdoc-ui.version>2.0.2</springdoc-ui.version>
+        <springdoc-api.version>2.0.2</springdoc-api.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <jasypt.version>3.0.3</jasypt.version>
+
+        <hutool.version>5.8.25</hutool.version>
+        <xmlunit.version>2.10.0</xmlunit.version>
+
+        <!-- 插件版本 -->
+        <therapi-javadoc.version>0.15.0</therapi-javadoc.version>
+        <mapstruct-plus.version>1.3.5</mapstruct-plus.version>
+        <mapstruct-plus.lombok.version>0.2.0</mapstruct-plus.lombok.version>
+        <lombok.version>1.18.36</lombok.version>
+
+        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
+        <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+        <maven-compiler-plugin.verison>3.11.0</maven-compiler-plugin.verison>
+        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+        <flatten-maven-plugin.version>1.3.0</flatten-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-classic</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-webmvc</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.tomcat.embed</groupId>
+                        <artifactId>tomcat-embed-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- common 的依赖配置-->
+            <dependency>
+                <groupId>com.lzbay</groupId>
+                <artifactId>pet-common-bom</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- hutool 的依赖配置-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- confirmed -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <!-- end confirmed -->
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pools.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>${pinyin4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+
+            <!--支持表达式解析器-->
+            <dependency>
+                <groupId>com.googlecode.aviator</groupId>
+                <artifactId>aviator</artifactId>
+                <version>${aviator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>2.11.0</version>
+            </dependency>
+
+            <!--Swagger3 begin-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-ui.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>${springdoc-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!--Swagger3 end-->
+
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>2.0.16</version>
+            </dependency>
+
+            <!--CVE ISSUE -->
+            <dependency>
+                <groupId>org.xmlunit</groupId>
+                <artifactId>xmlunit-core</artifactId>
+                <version>${xmlunit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.5.14</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.5.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>6.2.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>11.0.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <!-- 环境标识，需要与配置文件的名称相对应 -->
+                <profiles.active>local</profiles.active>
+                <logging.level>info</logging.level>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!-- 环境标识，需要与配置文件的名称相对应 -->
+                <profiles.active>dev</profiles.active>
+                <logging.level>info</logging.level>
+            </properties>
+            <activation>
+                <!-- 默认环境 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+                <logging.level>warn</logging.level>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.verison}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.github.therapi</groupId>
+                            <artifactId>therapi-runtime-javadoc-scribe</artifactId>
+                            <version>${therapi-javadoc.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>${spring-boot.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.github.linpeilie</groupId>
+                            <artifactId>mapstruct-plus-processor</artifactId>
+                            <version>${mapstruct-plus.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>${mapstruct-plus.lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <!-- 单元测试使用 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <!-- 根据打包环境执行对应的@Tag测试方法 -->
+                    <groups>${profiles.active}</groups>
+                    <!-- 排除标签 -->
+                    <excludedGroups>exclude</excludedGroups>
+                </configuration>
+            </plugin>
+            <!-- 统一版本号管理 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 关闭过滤 -->
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 引入所有 匹配文件进行过滤 -->
+                <includes>
+                    <include>application*</include>
+                    <include>bootstrap*</include>
+                    <include>banner*</include>
+                </includes>
+                <!-- 启用过滤 即该资源中的变量将会被过滤器中的值替换 -->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+</project>

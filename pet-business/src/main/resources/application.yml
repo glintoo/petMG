@@ -66,8 +66,8 @@ spring:
     name: ${project.name}
   # 资源信息
   messages:
-    # 国际化资源文件路径
-    basename: i18n/messages
+    # 国际化资源文件路径messages_en_US
+    basename: i18n/messages_en_US
   profiles:
     active: @profiles.active@
   # 文件上传

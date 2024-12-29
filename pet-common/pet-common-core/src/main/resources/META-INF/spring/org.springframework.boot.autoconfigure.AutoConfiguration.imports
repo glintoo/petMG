@@ -1,6 +1,6 @@
 com.lzbay.common.core.config.ApplicationConfig
 com.lzbay.common.core.config.AsyncConfig
-com.lzbay.common.core.config.WebConfig
+com.lzbay.common.core.config.WebAppConfig
 com.lzbay.common.core.config.ThreadPoolConfig
 com.lzbay.common.core.config.ValidatorConfig
 com.lzbay.common.core.utils.SpringUtils

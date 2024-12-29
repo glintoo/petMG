@@ -1,5 +1,6 @@
 package com.lzbay.common.core.domain;
 
+import com.lzbay.common.core.utils.MessageUtils;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.lzbay.common.core.constant.HttpStatus;
@@ -21,11 +22,11 @@ public class R<T> implements Serializable {
     private T data;
 
     public static <T> R<T> ok() {
-        return restResult(null, HttpStatus.SUCCESS, "操作成功");
+        return restResult(null, HttpStatus.SUCCESS, MessageUtils.message("res.operation.success"));
     }
 
     public static <T> R<T> ok(T data) {
-        return restResult(data,HttpStatus.SUCCESS, "操作成功");
+        return restResult(data,HttpStatus.SUCCESS, MessageUtils.message("res.operation.success"));
     }
 
     public static <T> R<T> ok(String msg) {
@@ -37,7 +38,7 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<T> fail() {
-        return restResult(null, HttpStatus.ERROR, "操作失败");
+        return restResult(null, HttpStatus.ERROR, MessageUtils.message("res.operation.fail"));
     }
 
     public static <T> R<T> fail(String msg) {
@@ -45,7 +46,7 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<T> fail(T data) {
-        return restResult(data, HttpStatus.ERROR, "操作失败");
+        return restResult(data, HttpStatus.ERROR, MessageUtils.message("res.operation.fail"));
     }
 
     public static <T> R<T> fail(String msg, T data) {

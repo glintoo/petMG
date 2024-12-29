@@ -30,8 +30,8 @@ public class PetBusinessApplication {
         log.info(
             "\n----------------------------------------------------------\n\t" +
                 "Access URLs:\n\t" +
-                "Local: \t\thttp://localhost:{}\n\t" +
-                "External: \thttp://{}:{}\n\t" +
+                "Local: \t\t\thttp://localhost:{}\n\t" +
+                "External: \t\thttp://{}:{}\n\t" +
                 "Local Swagger UI: \thttp://localhost:{}{}/doc.html\n\t" +
                 "Swagger UI: \t\thttp://{}:{}{}/doc.html\n\t" +
                 "Application '{}' started successfully! \n" +

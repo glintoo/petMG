@@ -29,7 +29,7 @@
 
         <revision>1.0.0</revision>
         <!--spring boot 版本-->
-        <spring-boot.version>3.4.0</spring-boot.version>
+        <spring-boot.version>3.5.14</spring-boot.version>
         <disruptor.version>3.4.4</disruptor.version>
         <!--mybatis-plus版本-->
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
@@ -37,18 +37,17 @@
         <mybatis.version>3.0.1</mybatis.version>
         <guava.version>30.0-jre</guava.version>
         <druid.version>1.2.20</druid.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-lang3.version>3.20.0</commons-lang3.version>
         <commons-pools.version>2.8.0</commons-pools.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <aviator.version>5.3.1</aviator.version>
-        <hutool-all.version>5.8.25</hutool-all.version>
         <springdoc-ui.version>2.0.2</springdoc-ui.version>
         <springdoc-api.version>2.0.2</springdoc-api.version>
         <knife4j.version>3.0.3</knife4j.version>
         <jasypt.version>3.0.3</jasypt.version>
 
-        <hutool.version>5.8.25</hutool.version>
+        <hutool.version>5.8.46</hutool.version>
         <xmlunit.version>2.10.0</xmlunit.version>
 
         <!-- 插件版本 -->
@@ -74,22 +73,22 @@
                 <type>pom</type>
                 <scope>import</scope>
                 <exclusions>
-                    <exclusion>
+                    <!--<exclusion>
                         <groupId>ch.qos.logback</groupId>
                         <artifactId>logback-core</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>ch.qos.logback</groupId>
                         <artifactId>logback-classic</artifactId>
-                    </exclusion>
-                    <exclusion>
+                    </exclusion>-->
+                    <!--<exclusion>
                         <groupId>org.springframework</groupId>
                         <artifactId>spring-webmvc</artifactId>
-                    </exclusion>
-                    <exclusion>
+                    </exclusion>-->
+                    <!--<exclusion>
                         <groupId>org.apache.tomcat.embed</groupId>
                         <artifactId>tomcat-embed-core</artifactId>
-                    </exclusion>
+                    </exclusion>-->
                 </exclusions>
             </dependency>
 
@@ -242,7 +241,7 @@
                 <artifactId>xmlunit-core</artifactId>
                 <version>${xmlunit.version}</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
                 <version>1.5.14</version>
@@ -251,18 +250,18 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>1.5.14</version>
-            </dependency>
-            <dependency>
+            </dependency>-->
+            <!--<dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>6.2.1</version>
-            </dependency>
+            </dependency>-->
 
-            <dependency>
+            <!--<dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
                 <version>11.0.2</version>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
